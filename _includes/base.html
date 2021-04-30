@@ -14,14 +14,12 @@
   </head>
 
   <body>
-    <header>
-      <nav>
-        <a href="/posts">Posts</a>
-      </nav>
-    </header>
+    {% include header.html %}
     <hr>
+
     <main>
      {{ content }}
      </main>
-     </body>
-     </html>
+     {% include footer.html %}
+  </body>
+</html>
