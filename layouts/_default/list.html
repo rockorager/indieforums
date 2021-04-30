@@ -1,0 +1,11 @@
+{{ define "main" }}
+<main>
+    <!-- Ranges through content/posts/*.md -->
+    {{ range $.Site.Data.webmentions.links }}
+        <article>
+			<h3><a href="{{.target}}">{{.target}}</a></h3>
+            <p>Submitted by <a href="{{.Source}}">{{.data.published | dateFormat "January 2, 2006"}} | {{.data.author.name}}</a></p>
+		</article>
+    {{ end }}
+</main>
+{{ end }}
