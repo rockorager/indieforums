@@ -1,3 +1,7 @@
+---
+layout: base
+---
+
 # indieforums
 
 To submit a top-level post, it must have title and be of type:
