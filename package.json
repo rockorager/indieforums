@@ -1,0 +1,23 @@
+{
+  "name": "indieforums",
+  "version": "1.0.0",
+  "description": "To submit a top-level post, it must have title and be of type:\r - article\r - note\r - event (?)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rockorager/indieforums.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rockorager/indieforums/issues"
+  },
+  "homepage": "https://github.com/rockorager/indieforums#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
+}
