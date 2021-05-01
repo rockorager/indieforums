@@ -4,15 +4,17 @@ layout: base
 
 # indieforums
 
-To submit a top-level post, it must have title and be of type:
-- article
-- note
-- event (?)
+To submit a post:
+u-syndication to https://indieforums.net
 
-Replies will ignore the title
+To submit a reply:
+u-syndication to https://indieforums.net/threads/THREAD-URL.html
+
+Possible future: 
+u-syndication to https://indieforums.net/CATEGORY
 
 ## ToDo
-- [ ] Make a single page from one of the top level links
+- [x] Make a single page from one of the top level links
 - [ ] Get structure of webmentions figured out
   - [ ] top level are type note, article, photo, bookmark to start
   - [ ] 
