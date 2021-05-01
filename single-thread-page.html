@@ -18,17 +18,10 @@ layout: "base"
 
 <main>
 
-  {%- for thread in pagination.items %}
-      <article>
-          <h3>
-              <a href="{{thread.target}}">{{thread.target}}</a>
-          </h3>
-          <p>Submitted by
-              <a href="{{thread.source}}">{{.data.published | dateFormat "January 2, 2006"}}
-                  |
-                  {{thread.data.author.name}}</a>
-          </p>
-      </article>
-      {% endfor %}
-  {{ end }}
+  <article>
+    {{thread.data.name}}
+    {{thread.data.content}}
+  </article>
+
+  {% assign 
 </main>

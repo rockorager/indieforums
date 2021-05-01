@@ -21,7 +21,7 @@ layout: "base"
   {%- for thread in pagination.items %}
       <article>
           <h3>
-              <a href="{{thread.target}}">{{thread.target}}</a>
+              <a href="/threads/{{ thread.source | hash }}.html">{{thread.data.name}}</a>
           </h3>
           <p>Submitted by
               <a href="{{thread.source}}">{{.data.published | dateFormat "January 2, 2006"}}
