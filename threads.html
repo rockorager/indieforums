@@ -1,10 +1,15 @@
+---js
+{
+pagination: {
+  data: "webmentions.links",
+  alias: "thread",
+  size: 1,
+  before: function(threads){
+    return threads.filter(thread => thread.target == "https\://timculverhouse.com/");
+  }
+},
+permalink: "/threads/{{ thread.source | hash }}.html"
+}
 ---
-pagination:
-  data: webmentions.links
-  alias: thread
-  size: 1
-permalink: /threads/{{ thread.id }}/
-layout: base
----
-
-{{ thread.id | hash }}
+{{ thread.target }}
+{{ page.url}}
