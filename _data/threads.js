@@ -66,5 +66,15 @@ module.exports = function () {
 
         };
     };
+
+    for (var thread of threads) {
+        thread.posts.sort(function (a, b) {
+            var c = a.data.published;
+            var d = b.data.published;
+            return d - c;
+        });
+        thread.updated = thread.posts[0].data.date;
+    };
+
     return threads;
 };

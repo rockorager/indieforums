@@ -1,0 +1,21 @@
+---js
+{
+pagination: {
+  data: "threads",
+  alias: "thread",
+  size: 1
+},
+permalink: "/threads/{{ thread.hash }}.html",
+layout: "base"
+}
+---
+
+<main>
+
+  {%- for post in thread.posts %}
+    {{post.data.content}}
+          <p>Submitted by <a href="{{post.source}}"> {{post.data.author.name}} on {{ post.data.published | date: "%A %B %e, %Y" }}</a>
+          </p>
+      </article>
+      {% endfor %}
+</main>
