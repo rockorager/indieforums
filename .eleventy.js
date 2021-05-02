@@ -1,4 +1,5 @@
-const md5 = require('md5');
+
+const xxhash64 = require('./xxhash64.js');
 
 // Passthrough files
 module.exports = function (eleventyConfig) {
@@ -8,8 +9,8 @@ module.exports = function (eleventyConfig) {
 
     // Add hash filter
     eleventyConfig.addFilter("hash", function (string) {
-        var result = md5(string);
-        return md5(string);
+        var result = xxhash64(string);
+        return result;
     });
 
     // Files to convert are in src

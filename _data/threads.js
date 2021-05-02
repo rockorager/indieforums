@@ -1,11 +1,15 @@
 const webmentions = require('./webmentions.json');
 const postOverrides = require('./postOverrides.json');
-const md5 = require('md5');
-const fs = require('fs');
+
+
+const xxhash64 = require('../xxhash64.js');
 
 module.exports = function () {
     // Initialize the array we are building
     var threads = [];
+
+
+
 
     // Iterate through all webmentions
     for (var post of webmentions.links) {
@@ -30,7 +34,7 @@ module.exports = function () {
 
             // Get thread if it already exists
             var filteredThreads = threads.filter(function (thr) {
-                var postHash = md5(post.source); //hash the source for the thread id
+                var postHash = xxhash64(post.source);
                 return (thr.hash === postHash);
             });
             if (filteredThreads.length === 0) {
@@ -44,7 +48,7 @@ module.exports = function () {
             // posters can specify a thread category at syndication time by syndicating to indieforums.net/CATEGORY, or leave blank
             thread.category = post.pathname.split("/")[1];
             thread.sticky = post.sticky;
-            thread.hash = md5(post.source);
+            thread.hash = xxhash64(post.source);
             post.isParent = true;
 
             thread.posts.push(post);
@@ -63,7 +67,6 @@ module.exports = function () {
                 var thread = {};
                 thread.hash = targetHash;
                 thread.posts = [];
-                console.log("here");
                 // Push this post into the thread
                 thread.posts.push(post);
                 threads.push(thread);
