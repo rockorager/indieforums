@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "crypto-js": "^4.0.0",
-    "md5": "^2.3.0"
+    "md5": "^2.3.0",
+    "xxhash-addon": "^1.4.0"
   }
 }
