@@ -1,4 +1,5 @@
 const webmentions = require('./webmentions.json');
+const postOverrides = require('./postOverrides.json');
 const md5 = require('md5');
 const fs = require('fs');
 
@@ -8,6 +9,17 @@ module.exports = function () {
 
     // Iterate through all webmentions
     for (var post of webmentions.links) {
+        // initialize sticky, override will modify
+        post.sticky = false;
+
+        // Get overrides if it already exists
+        var override = postOverrides.filter(function (ovr) {
+            return (ovr.id === post.id);
+        });
+
+        if (override.length > 0) {
+            post = override[0];
+        };
 
         // Get the path the post was targetting
         var targetAsUrl = new URL(post.target);
@@ -24,57 +36,55 @@ module.exports = function () {
             if (filteredThreads.length === 0) {
                 var thread = {};
                 thread.posts = [];
+                threads.push(thread);
             } else {
                 var thread = filteredThreads[0];
             };
 
-            thread.hash = md5(post.source);
-
-            // TODO - need to add a check for if this post is more recent than the current thread.updated value
-            thread.updated = post.data.published;
-
             // posters can specify a thread category at syndication time by syndicating to indieforums.net/CATEGORY, or leave blank
             thread.category = post.pathname.split("/")[1];
-            thread.sticky = false;
+            thread.sticky = post.sticky;
+            thread.hash = md5(post.source);
             post.isParent = true;
 
             thread.posts.push(post);
-            threads.push(thread);
 
         } else {
             // Extract the hash from the URL
             var targetHash = post.pathname.split("/")[2].split(".")[0];
-
             // Get thread if it already exists
             var filteredThreads = threads.filter(function (thr) {
                 return (thr.hash === targetHash);
             });
 
-            if (filteredThreads.length === 0) {
+
+            if (filteredThreads.length < 1) {
+                // we only get here if a comment was parsed before the top level
                 var thread = {};
                 thread.hash = targetHash;
                 thread.posts = [];
+                console.log("here");
+                // Push this post into the thread
+                thread.posts.push(post);
+                threads.push(thread);
             } else {
-                var thread = filteredThreads[0];
+                filteredThreads[0].posts.push(post);
             };
 
-            // Push this post into the thread
-
-            thread.posts.push(post);
-            // TODO check if thread.updated is older than this posts publish date
-            //  console.log(post.target.pathname);
 
         };
     };
-
-    for (var thread of threads) {
-        thread.posts.sort(function (a, b) {
-            var c = a.data.published;
-            var d = b.data.published;
-            return d - c;
-        });
-        thread.updated = thread.posts[0].data.date;
-    };
+    /*
+        for (var thread of threads) {
+            // sort posts, newest to oldest
+            thread.posts.sort(function (a, b) {
+                var c = a.data.published;
+                var d = b.data.published;
+                return d - c;
+            });
+            */
+    // set the latest updated for use in sorting threads on main page
+    thread.updated = thread.posts[0].data.published;
 
     return threads;
 };
