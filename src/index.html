@@ -34,13 +34,11 @@ layout: "base"
                     </p>
                 </section>
                 <section class="thread-replies">
-                    <p>💬
-                        {{thread.posts | size | minus: 1}}</p>
+                    <p>💬 {{thread.posts | size | minus: 1}}</p>
                 </section>
                 <section class="thread-lastUpdated">
                     <p>{{thread.lastUpdated | dayjs }}</p>
-                    <p>by
-                        {{thread.posts[0].data.author.name}}</p>
+                    <p>by {{thread.posts[0].data.author.name}}</p>
                 </section>
 
             </article>

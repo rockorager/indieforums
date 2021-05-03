@@ -17,7 +17,7 @@ header {
 }
 
 footer {
-    width: 960px;
+    max-width: 960px;
     margin: 0 auto;
     text-align: center;
 }
@@ -27,14 +27,15 @@ footer img {
 }
 
 nav, nav a{
-    width: 960px;
+    max-width: 960px;
     margin: 0 auto;
     color: #FFF;
     text-decoration: none;
 }
 main {
-    width: 960px;
+    max-width: 960px;
     margin: 0 auto;
+    padding: 6px;
 }
 
 .avatar {
@@ -42,22 +43,33 @@ main {
 }
 
 .thread-container {
-    display:grid;
-    grid-template-columns: 50px 1fr 200px 200px;
-    grid-gap: 0.5em;
+    display:flex;
     margin: 0.5em auto;
     padding: 1em 0.5em;
     align-items:center;
+    justify-items: center;
     border-radius: 10px;
     background-color: #FFF;
+    flex-wrap: wrap;
 }
 
-.thread-avatar, .thread-replies, .thread-lastUpdated {
-    justify-self:center;
+.thread-avatar {
+    width: 60px;
+    text-align: center;
 }
 
+.thread-details {
+flex-grow:1;
+}
 .thread-author, .thread-lastUpdated{
     font-size: 14px;
+}
+
+.thread-lastUpdated {
+}
+.thread-replies{
+    width:150px;
+    text-align: center;
 }
 
 .thread-container a {
