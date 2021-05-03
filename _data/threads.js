@@ -49,8 +49,7 @@ module.exports = function () {
             thread.category = post.pathname.split("/")[1];
             thread.sticky = post.sticky;
             thread.hash = xxhash64(post.source);
-            post.isParent = true;
-
+            thread.title = post.data.name;
             thread.posts.push(post);
 
         } else {
@@ -73,8 +72,6 @@ module.exports = function () {
             } else {
                 filteredThreads[0].posts.push(post);
             };
-
-
         };
     };
     /*
