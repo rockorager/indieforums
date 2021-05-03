@@ -1,8 +1,8 @@
 
 const xxhash64 = require('./xxhash64.js');
 
-// Passthrough files
 module.exports = function (eleventyConfig) {
+    // Files to convert are in src
     dir: {
         input: "src"
     }
@@ -16,7 +16,10 @@ module.exports = function (eleventyConfig) {
         return result;
     });
 
-    // Files to convert are in src
+    eleventyConfig.addFilter("prettyTime", function (time) {
+
+        return time;
+    });
 };
 
 
