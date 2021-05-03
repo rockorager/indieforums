@@ -21,3 +21,4 @@ u-syndication to https://indieforums.net/CATEGORY
 - [ ] Build a liquid time filter that returns "x minutes ago" if <60 minutes, day of week if less than a week ago, and full date for further
 - [ ] "reply" link that has a popup with html to copy for reply
 - [ ] flesh out post listings page (index) and thread pages html
+- [ ] Use dayjs to format times better ("5 minutes ago")
