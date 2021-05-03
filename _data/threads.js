@@ -46,10 +46,14 @@ module.exports = function () {
             };
 
             // posters can specify a thread category at syndication time by syndicating to indieforums.net/CATEGORY, or leave blank
+            if (post.data.name === null) {
+                post.data.name = "Untitled";
+            }
             thread.category = post.pathname.split("/")[1];
             thread.sticky = post.sticky;
             thread.hash = xxhash64(post.source);
             thread.title = post.data.name;
+            console.log(thread.title);
             thread.posts.push(post);
 
         } else {

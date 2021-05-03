@@ -1,15 +1,9 @@
 ---js
 {
 pagination: {
-  data: "webmentions.links",
+  data: "threads",
   alias: "thread",
-  size: 30,
-  before: function(threads){
-    return threads.filter(function(thread){
-      const url = new URL(thread.target);
-      return (!thread.target.includes("threads"));
-    });
-  }
+  size: 30
 },
 permalink: "/",
 layout: "base"
@@ -18,17 +12,17 @@ layout: "base"
 
 <main>
 
-  {%- for thread in pagination.items %}
-      <article>
-          <h3>
-              <a href="/threads/{{ thread.source | hash }}.html">{{thread.data.name}}</a>
-          </h3>
-          <p>Submitted by
-              <a href="{{thread.source}}">{{.data.published | dateFormat "January 2, 2006"}}
-                  |
-                  {{thread.data.author.name}}</a>
-          </p>
-      </article>
-      {% endfor %}
+    {%- for thread in pagination.items %}
+        <article>
+            <h3>
+                <a " href=" /threads/ {{ thread.hash }} ">{{ thread.title }}</a>
+            </h3>
+            <p>Submitted by
+                <a href=" {{thread.posts[0].source}} ">{{thread.posts[0].data.published | date: "%b %d, %y"}}
+                    |
+                    {{thread.posts[0].data.author.name}}</a>
+            </p>
+        </article>
+    {% endfor %}
 
 </main>
