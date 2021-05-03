@@ -8,15 +8,12 @@ module.exports = function () {
     // Initialize the array we are building
     var threads = [];
 
-
-
-
     // Iterate through all webmentions
     for (var post of webmentions.links) {
         // initialize sticky, override will modify
         post.sticky = false;
 
-        // Get overrides if it already exists
+        // Get overrides
         var override = postOverrides.filter(function (ovr) {
             return (ovr.id === post.id);
         });
@@ -29,17 +26,19 @@ module.exports = function () {
         var targetAsUrl = new URL(post.target);
         post.pathname = targetAsUrl.pathname;
 
-        // If the post is not a webmention to a thread ID, process as top level post
+        // If the post is not targeting an existing thread, process as top level post
         if (!post.pathname.includes("threads")) {
 
-            // Get thread if it already exists
+            // Get thread object, if it already exists
             var filteredThreads = threads.filter(function (thr) {
                 var postHash = xxhash64(post.source);
                 return (thr.hash === postHash);
             });
             if (filteredThreads.length === 0) {
                 var thread = {};
+                // Initialize posts array
                 thread.posts = [];
+                // Add this object to the main array, since it hasn't been added yet
                 threads.push(thread);
             } else {
                 var thread = filteredThreads[0];
@@ -49,6 +48,8 @@ module.exports = function () {
             if (post.data.name === null) {
                 post.data.name = "Untitled";
             }
+
+            // Set thread properties
             thread.category = post.pathname.split("/")[1];
             thread.sticky = post.sticky;
             thread.hash = xxhash64(post.source);
@@ -56,6 +57,8 @@ module.exports = function () {
             thread.posts.push(post);
 
         } else {
+            // Handle the post as a comment on an existing thread
+
             // Extract the hash from the URL
             var targetHash = post.pathname.split("/")[2].split(".")[0];
             // Get thread if it already exists
