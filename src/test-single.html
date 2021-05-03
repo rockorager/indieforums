@@ -12,7 +12,7 @@ layout: "base"
 
 <main>
 
-  {%- for post in thread.posts %}
+  {% for post in thread.posts reversed %}
     {{post.data.content}}
           <p>Submitted by <a href="{{post.source}}"> {{post.data.author.name}} on {{ post.data.published | date: "%A %B %e, %Y" }}</a>
           </p>
