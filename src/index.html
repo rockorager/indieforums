@@ -15,10 +15,10 @@ layout: "base"
     {%- for thread in pagination.items %}
         <article>
             <h3>
-                <a " href=" /threads/ {{ thread.hash }} ">{{ thread.title }}</a>
+                <a href="/threads/{{thread.hash}}.html">{{ thread.title }}</a>
             </h3>
             <p>Submitted by
-                <a href=" {{thread.posts[0].source}} ">{{thread.posts[0].data.published | date: "%b %d, %y"}}
+                <a href="{{thread.posts[0].source}} ">{{thread.posts[0].data.published | date: "%b %d, %y"}}
                     |
                     {{thread.posts[0].data.author.name}}</a>
             </p>
