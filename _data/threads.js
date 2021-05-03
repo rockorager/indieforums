@@ -53,7 +53,6 @@ module.exports = function () {
             thread.sticky = post.sticky;
             thread.hash = xxhash64(post.source);
             thread.title = post.data.name;
-            console.log(thread.title);
             thread.posts.push(post);
 
         } else {
