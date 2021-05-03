@@ -11,18 +11,18 @@ layout: "base"
 ---
 
 <main>
-{% for thread in pagination.items %}
-    <article class="h-entry">
-        <h3>
-            <a href="/threads/{{thread.hash}}.html">{{ thread.title }}</a>
-        </h3>
+    {% for thread in pagination.items %}
+        <article class="h-entry">
+            <h3>
+                <a href="/threads/{{thread.hash}}.html">{{ thread.title }}</a>
+            </h3>
 
-        <img src="{{thread.posts[0].data.author.photo}}" alt="{{thread.posts[0].data.author.name}}" width="24px" class="avatar">
-        <a href="{{thread.posts[0].data.author.url}}">{{thread.posts[0].data.author.name}}</a>
-        on
-        <a href="{{thread.posts[0].source}}">{{thread.posts[0].data.published | date: "%A %B %e, %Y"}}</a>
+            <img src="{{thread.posts[0].data.author.photo}}" alt="{{thread.posts[0].data.author.name}}" width="24px" class="avatar">
+            <a href="{{thread.posts[0].data.author.url}}">{{thread.posts[0].data.author.name}}</a>
+            on
+            <a href="{{thread.posts[0].source}}">{{thread.posts[0].data.published | date: "%H:%M %A %B %e, %Y"}}</a>
 
-    </article>
-{% endfor %}
+        </article>
+    {% endfor %}
 
 </main>

@@ -77,17 +77,25 @@ module.exports = function () {
             };
         };
     };
-    /*
-        for (var thread of threads) {
-            // sort posts, newest to oldest
-            thread.posts.sort(function (a, b) {
-                var c = a.data.published;
-                var d = b.data.published;
-                return d - c;
-            });
-            */
-    // set the latest updated for use in sorting threads on main page
-    thread.updated = thread.posts[0].data.published;
 
+    // Sort posts (newest to oldest) and set thread.lastUpdated
+    for (var thread of threads) {
+        thread.posts.sort(function (a, b) {
+            var c = new Date(a.data.published);
+            var d = new Date(b.data.published);
+            return d - c;
+        });
+
+        // Set thread updated date
+        thread.lastUpdated = thread.posts[0].data.published;
+    };
+
+    // Sort threads by lastUpdated
+    threads.sort(function (a, b) {
+        var c = new Date(a.lastUpdated);
+        var d = new Date(b.lastUpdated);
+        return d - c;
+    });
+    console.log(threads);
     return threads;
 };
