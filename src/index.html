@@ -11,18 +11,75 @@ layout: "base"
 ---
 
 <main>
+
     {% for thread in pagination.items %}
-        <article class="h-entry">
-            <h3>
-                <a href="/threads/{{thread.hash}}.html">{{ thread.title }}</a>
-            </h3>
 
-            <img src="{{thread.posts[0].data.author.photo}}" alt="{{thread.posts[0].data.author.name}}" width="24px" class="avatar">
-            <a href="{{thread.posts[0].data.author.url}}">{{thread.posts[0].data.author.name}}</a>
-            on
-            <a href="{{thread.posts[0].source}}">{{thread.posts[0].data.published | date: "%H:%M %A %B %e, %Y"}}</a>
+        {% if thread.sticky == "true" %}
+            {%- comment -%}Have to do this weird thing because using the "where" filter isn't working on pagination.items{%- endcomment -%}
+            <article class="h-entry thread-container sticky">
+                <section class="thread-avatar">
+                    <p>
+                        <a href="{{thread.parent.data.author.url}}" title="{{thread.parent.data.author.name}}"><img src="{{thread.parent.data.author.photo}}" alt="{{thread.parent.data.author.name}}" width="40px" class="avatar"></a>
+                    </p>
+                </section>
 
-        </article>
+                <section class="thread-details">
+                    <h3>
+                        📌 <a href="/threads/{{thread.hash}}.html">{{ thread.title }}</a>
+                    </h3>
+                    <p class="thread-author">Posted by
+                        <a href="{{thread.parent.data.author.url}}">{{thread.parent.data.author.name}}</a>
+                        on
+                        <a href="{{thread.parent.source}}">{{thread.parent.data.published | dayjs }}</a>
+                    </p>
+                </section>
+                <section class="thread-replies">
+                    <p>💬
+                        {{thread.posts | size | minus: 1}}</p>
+                </section>
+                <section class="thread-lastUpdated">
+                    <p>{{thread.lastUpdated | dayjs }}</p>
+                    <p>by
+                        {{thread.posts[0].data.author.name}}</p>
+                </section>
+
+            </article>
+        {% endif %}
+    {% endfor %}
+
+    {% for thread in pagination.items %}
+
+        {% if thread.sticky == "false" %}
+            {%- comment -%}Have to do this weird thing because using the "where" filter isn't working on pagination.items{%- endcomment -%}
+            <article class="h-entry thread-container">
+                <section class="thread-avatar">
+                    <p>
+                        <a href="{{thread.parent.data.author.url}}" title="{{thread.parent.data.author.name}}"><img src="{{thread.parent.data.author.photo}}" alt="{{thread.parent.data.author.name}}" width="40px" class="avatar"></a>
+                    </p>
+                </section>
+
+                <section class="thread-details">
+                    <h3>
+                        <a href="/threads/{{thread.hash}}.html">{{ thread.title }}</a>
+                    </h3>
+                    <p class="thread-author">Posted by
+                        <a href="{{thread.parent.data.author.url}}">{{thread.parent.data.author.name}}</a>
+                        on
+                        <a href="{{thread.parent.source}}">{{thread.parent.data.published | dayjs }}</a>
+                    </p>
+                </section>
+                <section class="thread-replies">
+                    <p>💬
+                        {{thread.posts | size | minus: 1}}</p>
+                </section>
+                <section class="thread-lastUpdated">
+                    <p>{{thread.lastUpdated | dayjs }}</p>
+                    <p>by
+                        {{thread.posts[0].data.author.name}}</p>
+                </section>
+
+            </article>
+        {% endif %}
     {% endfor %}
 
 </main>

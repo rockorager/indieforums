@@ -1,5 +1,7 @@
-
 const xxhash64 = require('./xxhash64.js');
+const dayjs = require('dayjs');
+const relativeTime = require('dayjs/plugin/relativeTime');
+dayjs.extend(relativeTime);
 
 module.exports = function (eleventyConfig) {
     // Files to convert are in src
@@ -16,9 +18,13 @@ module.exports = function (eleventyConfig) {
         return result;
     });
 
-    eleventyConfig.addFilter("prettyTime", function (time) {
-
-        return time;
+    eleventyConfig.addFilter("dayjs", function (inp) {
+        inp = dayjs(inp);
+        if (dayjs().diff(inp, 'day') < 3) {
+            return inp.format("dddd, MMMM D, YYYY h:mm A");
+        } else {
+            return inp.format("dddd, MMMM D, YYYY");
+        };
     });
 };
 

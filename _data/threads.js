@@ -1,7 +1,6 @@
 const webmentions = require('./webmentions.json');
 const postOverrides = require('./postOverrides.json');
 
-
 const xxhash64 = require('../xxhash64.js');
 
 module.exports = function () {
@@ -11,7 +10,7 @@ module.exports = function () {
     // Iterate through all webmentions
     for (var post of webmentions.links) {
         // initialize sticky, override will modify
-        post.sticky = false;
+        post.sticky = "false";
 
         // Get overrides
         var override = postOverrides.filter(function (ovr) {
@@ -21,7 +20,6 @@ module.exports = function () {
         if (override.length > 0) {
             post = override[0];
         };
-
         // Get the path the post was targetting
         var targetAsUrl = new URL(post.target);
         post.pathname = targetAsUrl.pathname;
@@ -55,6 +53,7 @@ module.exports = function () {
             thread.hash = xxhash64(post.source);
             thread.title = post.data.name;
             thread.posts.push(post);
+            thread.parent = post;
 
         } else {
             // Handle the post as a comment on an existing thread
