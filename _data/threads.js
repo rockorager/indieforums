@@ -8,9 +8,6 @@ module.exports = function () {
     // Initialize the array we are building
     var threads = [];
 
-
-
-
     // Iterate through all webmentions
     for (var post of webmentions.links) {
         // initialize sticky, override will modify
@@ -96,6 +93,5 @@ module.exports = function () {
         var d = new Date(b.lastUpdated);
         return d - c;
     });
-    console.log(threads);
     return threads;
 };
