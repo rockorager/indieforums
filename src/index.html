@@ -34,11 +34,11 @@ layout: "base"
                     </p>
                 </section>
                 <section class="thread-replies">
-                    <p>💬 {{thread.posts | size | minus: 1}}</p>
+                    <a href="/threads/{{thread.hash}}.html"><p>💬 {{thread.posts | size | minus: 1}}</p></a>
                 </section>
                 <section class="thread-lastUpdated">
-                    <p>{{thread.lastUpdated | dayjs }}</p>
-                    <p>by {{thread.posts[0].data.author.name}}</p>
+                    <a href="{{thread.posts[0].source}}"><p>{{thread.lastUpdated | dayjs }}</p></a>
+                    by <a href="{{thread.posts[0].data.author.url}}">{{thread.posts[0].data.author.name}}</a>
                 </section>
 
             </article>
@@ -67,13 +67,17 @@ layout: "base"
                     </p>
                 </section>
                 <section class="thread-replies">
-                    <p>💬
-                        {{thread.posts | size | minus: 1}}</p>
+                    <a href="/threads/{{thread.hash}}.html">
+                        <p>💬
+                            {{thread.posts | size | minus: 1}}</p>
+                    </a>
                 </section>
                 <section class="thread-lastUpdated">
-                    <p>{{thread.lastUpdated | dayjs }}</p>
-                    <p>by
-                        {{thread.posts[0].data.author.name}}</p>
+                    <a href="{{thread.posts[0].source}}">
+                        <p>{{thread.lastUpdated | dayjs }}</p>
+                    </a>
+                    by
+                    <a href="{{thread.posts[0].data.author.url}}">{{thread.posts[0].data.author.name}}</a>
                 </section>
 
             </article>

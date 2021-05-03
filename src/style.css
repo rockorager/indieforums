@@ -31,6 +31,8 @@ nav, nav a{
     margin: 0 auto;
     color: #FFF;
     text-decoration: none;
+    font-family:'Courier New', Courier, monospace;
+    font-weight:normal;
 }
 main {
     max-width: 960px;
@@ -59,17 +61,20 @@ main {
 }
 
 .thread-details {
-flex-grow:1;
+    flex-grow:10;
+    width: 200px;
 }
 .thread-author, .thread-lastUpdated{
     font-size: 14px;
 }
 
 .thread-lastUpdated {
+    flex-grow: 1;
 }
 .thread-replies{
-    width:150px;
+    min-width: 50px;
     text-align: center;
+    flex-grow: 2;
 }
 
 .thread-container a {
@@ -78,10 +83,15 @@ flex-grow:1;
 }
 
 .thread-container a:hover {
-    color: red;
-    text-decoration: underline;
+color: blue;
 }
 
 #buttons {
     margin: 0 auto;
 }
+
+@media only screen and (max-width: 500px) {
+    .thread-avatar, .thread-lastUpdated {
+      display: none;
+    }
+  }
