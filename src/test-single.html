@@ -6,7 +6,9 @@ pagination: {
   size: 1
 },
 permalink: "/threads/{{ thread.hash }}.html",
-title: "IndieForums.net",
+eleventyComputed: {
+  title: "{{ thread.title }}"
+},
 layout: "base"
 }
 ---
@@ -25,6 +27,11 @@ layout: "base"
             <section class="post-content">
               <p class="post-permalink"><a href="{{post.source}}">{{ post.data.published | dayjs }}</a></p>
               {{post.data.content}}
+              <details class="post-reply-to">
+                <summary>Reply</summary>
+                <p><em>Include these links in your reply post</em><xmp><a href="{{post.source}}" class="u-in-reply-to"></a>
+<a href="https://indieforums.net{{page.url}}" class="u-syndication"></a></xmp></p>
+              </details>
             </section>
 
 
