@@ -40,7 +40,7 @@ main {
 }
 
 /* -------- Styles for Thread lists --------- */
-.thread-container {
+.thread-list-container {
     display:flex;
     margin: 0.5em auto;
     padding: 1em 0.5em;
@@ -69,17 +69,68 @@ main {
     text-align: center;
     flex-grow: 2;
 }
-.thread-container a {
+.thread-list-container a {
     color: #333;
     text-decoration: none;
 }
-.thread-container a:hover {
+.thread-list-container a:hover {
 color: blue;
+}
+
+/* -------- Styles for thread page ------ */
+
+.thread-container {
+    margin: 0.5em auto;
+    border-radius: 10px;
+    background-color: #FFF;
+}
+.thread-post {
+    display: flex;
+    border-bottom: 1px solid #333;
+    padding: 1em 0.5em;
+}
+.thread-post:last-of-type{
+    border-bottom: none;
+}
+.post-author {
+    text-align: center;
+    min-width: 150px;
+    font-size: 14px;
+}
+.post-author a {
+    color: #333;
+    text-decoration: none;
+}
+.post-content {
+    flex-grow: 1;
+}
+.post-permalink {
+    font-size: 14px;
+    margin-bottom: 1em;
+}
+
+.post-permalink a {
+    color: #333;
+}
+.thread-container a:hover {
+    color: blue;
 }
 
 /* -------- Styles for mobile --------- */
 @media only screen and (max-width: 500px) {
     .thread-avatar, .thread-lastUpdated {
       display: none;
+    }
+    .thread-post {
+      flex-wrap: wrap;
+    }
+    .post-author-name{
+        display: inline;
+    }
+    .post-author img {
+        vertical-align: middle;
+    }
+    .post-author { 
+        padding-bottom: 0.5em;
     }
   }

@@ -11,12 +11,23 @@ layout: "base"
 }
 ---
 
-<main>
+<main class="thread-container">
 
-  {% for post in thread.posts reversed %}
-    {{post.data.content}}
-          <p>Submitted by <a href="{{post.source}}"> {{post.data.author.name}} on {{ post.data.published | date: "%A %B %e, %Y" }}</a>
-          </p>
-      </article>
-      {% endfor %}
+    {% for post in thread.posts reversed %}
+        <article class="thread-post">
+
+            <section class="post-author">
+                <a href="{{post.data.author.url}}" title="{{post.data.author.name}}" ><img src="{{post.data.author.photo}}" alt="{{post.data.author.name}}" width="40px" class="avatar">
+                    <p class="post-author-name">{{thread.parent.data.author.name}}</p>
+                </a>
+            </section>
+
+            <section class="post-content">
+              <p class="post-permalink"><a href="{{post.source}}">{{ post.data.published | dayjs }}</a></p>
+              {{post.data.content}}
+            </section>
+
+
+        </article>
+    {% endfor %}
 </main>

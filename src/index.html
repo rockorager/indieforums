@@ -17,7 +17,7 @@ title: "IndieForums.net"
 
         {% if thread.sticky == "true" %}
             {%- comment -%}Have to do this weird thing because using the "where" filter isn't working on pagination.items{%- endcomment -%}
-            <article class="h-entry thread-container sticky">
+            <article class="h-entry thread-list-container sticky">
                 <section class="thread-avatar">
                     <p>
                         <a href="{{thread.parent.data.author.url}}" title="{{thread.parent.data.author.name}}"><img src="{{thread.parent.data.author.photo}}" alt="{{thread.parent.data.author.name}}" width="40px" class="avatar"></a>
@@ -26,10 +26,10 @@ title: "IndieForums.net"
 
                 <section class="thread-details">
                     <h3>
-                        📌 <a href="/threads/{{thread.hash}}.html">{{ thread.title }}</a>
+                        <a href="/threads/{{thread.hash}}.html">📌 {{ thread.title }}</a>
                     </h3>
                     <p class="thread-author">Posted by
-                        <a href="{{thread.parent.data.author.url}}">{{thread.parent.data.author.name}}<img src="/assets/img/external-link.svg" width="10px"></a>
+                        <a href="{{thread.parent.data.author.url}}">{{thread.parent.data.author.name}}</a>
                         on
                         <a href="{{thread.parent.source}}">{{thread.parent.data.published | dayjs }}</a>
                     </p>
@@ -50,7 +50,7 @@ title: "IndieForums.net"
 
         {% if thread.sticky == "false" %}
             {%- comment -%}Have to do this weird thing because using the "where" filter isn't working on pagination.items{%- endcomment -%}
-            <article class="h-entry thread-container">
+            <article class="h-entry thread-list-container">
                 <section class="thread-avatar">
                     <p>
                         <a href="{{thread.parent.data.author.url}}" title="{{thread.parent.data.author.name}}"><img src="{{thread.parent.data.author.photo}}" alt="{{thread.parent.data.author.name}}" width="40px" class="avatar"></a>
