@@ -21,9 +21,7 @@
     "@11ty/eleventy": "^0.12.1"
   },
   "dependencies": {
-    "crypto-js": "^4.0.0",
     "dayjs": "^1.10.4",
-    "md5": "^2.3.0",
     "xxhash-addon": "^1.4.0"
   }
 }
