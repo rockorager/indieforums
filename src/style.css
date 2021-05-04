@@ -1,31 +1,27 @@
+/* -------- Styles for generic --------- */
 body {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
     color: #333;
     line-height: 1.5rem;
     margin: 0;
-    background-color: #EEE;
+    background-color: #f8f9fa;
 }
-
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
 }
-
 header {
     background-color: #333;
     padding: 1em;
 }
-
 footer {
     max-width: 960px;
     margin: 0 auto;
     text-align: center;
 }
-
 footer img {
     margin: 0 auto;
 }
-
 nav, nav a{
     max-width: 960px;
     margin: 0 auto;
@@ -39,11 +35,11 @@ main {
     margin: 0 auto;
     padding: 6px;
 }
-
 .avatar {
     border-radius: 50%;
 }
 
+/* -------- Styles for Thread lists --------- */
 .thread-container {
     display:flex;
     margin: 0.5em auto;
@@ -54,12 +50,10 @@ main {
     background-color: #FFF;
     flex-wrap: wrap;
 }
-
 .thread-avatar {
     width: 60px;
     text-align: center;
 }
-
 .thread-details {
     flex-grow:10;
     width: 200px;
@@ -67,7 +61,6 @@ main {
 .thread-author, .thread-lastUpdated{
     font-size: 14px;
 }
-
 .thread-lastUpdated {
     flex-grow: 1;
 }
@@ -76,20 +69,15 @@ main {
     text-align: center;
     flex-grow: 2;
 }
-
 .thread-container a {
     color: #333;
     text-decoration: none;
 }
-
 .thread-container a:hover {
 color: blue;
 }
 
-#buttons {
-    margin: 0 auto;
-}
-
+/* -------- Styles for mobile --------- */
 @media only screen and (max-width: 500px) {
     .thread-avatar, .thread-lastUpdated {
       display: none;

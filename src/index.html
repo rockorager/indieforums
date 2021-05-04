@@ -6,7 +6,8 @@ pagination: {
   size: 30
 },
 permalink: "/",
-layout: "base"
+layout: "base",
+title: "IndieForums.net"
 }
 ---
 
@@ -28,7 +29,7 @@ layout: "base"
                         📌 <a href="/threads/{{thread.hash}}.html">{{ thread.title }}</a>
                     </h3>
                     <p class="thread-author">Posted by
-                        <a href="{{thread.parent.data.author.url}}">{{thread.parent.data.author.name}}</a>
+                        <a href="{{thread.parent.data.author.url}}">{{thread.parent.data.author.name}}<img src="/assets/img/external-link.svg" width="10px"></a>
                         on
                         <a href="{{thread.parent.source}}">{{thread.parent.data.published | dayjs }}</a>
                     </p>
