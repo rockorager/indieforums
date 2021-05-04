@@ -144,9 +144,10 @@ summary{
     cursor: pointer;
     width: 75px;
 }
-xmp {
-    font-size: 12px;
+details textarea {
+    width: 100%;
+    resize: none;
     background-color: #f8f9fa;
-    padding: 1em;
+    border: none;
 }
 
