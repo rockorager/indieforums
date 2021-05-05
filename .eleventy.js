@@ -17,10 +17,8 @@ module.exports = function (eleventyConfig) {
     
     eleventyConfig.addFilter("dayjs", function (inp) {
         inp = dayjs(inp);
-        if (dayjs().diff(inp, 'day') < 3) {
+        if (dayjs().diff(inp, 'day') < 20) {
             return inp.format("MMM D h:mm A");
-        } else if (dayjs().diff(inp, 'day') < 180 ) {
-            return inp.format("MMM D");
         } else {
             return inp.format("MMM D, YYYY");
         };
