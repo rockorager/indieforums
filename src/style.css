@@ -19,6 +19,9 @@ footer {
     margin: 0 auto;
     text-align: center;
 }
+
+
+
 footer img {
     margin: 0 auto;
 }
@@ -43,7 +46,7 @@ main {
 .thread-list-container {
     display:flex;
     margin: 0.5em auto;
-    padding: 1.5em;
+    padding: 0.5em 1.5em;
     align-items:center;
     justify-items: center;
     border-radius: 10px;
@@ -52,7 +55,7 @@ main {
 }
 .thread-avatar {
     width: 60px;
-    text-align: center;
+    height: 40px;
 }
 .thread-details {
     flex-grow:10;
@@ -109,6 +112,14 @@ color: blue;
 .post-content p {
     padding-bottom: 1em;
 }
+
+
+.post-content img {
+    max-width: 100%;
+    display: block;
+    margin: 0.5em auto;
+}
+
 .post-permalink {
     font-size: 14px;
     margin-bottom: 1em;
@@ -146,4 +157,3 @@ details textarea {
     background-color: #f8f9fa;
     border: none;
 }
-
