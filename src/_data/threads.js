@@ -1,10 +1,14 @@
-const webmentions = require('./webmentions.json');
 const postOverrides = require('./postOverrides.json');
+const axios = require('axios');
+const xxhash64 = require('../../xxhash64');
 
+module.exports = async function () {
+    //fetch the data
 
-const xxhash64 = require('../xxhash64.js');
-
-module.exports = function () {
+    var { data } = await axios.get("https://webmention.io/api/mentions?token=by886801GY0dxjaF6rNiVg")
+// put in error handling
+    let webmentions = data;
+    
     // Initialize the array we are building
     var threads = [];
 
@@ -100,4 +104,5 @@ module.exports = function () {
         return d - c;
     });
     return threads;
+
 };

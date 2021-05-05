@@ -21,6 +21,7 @@
     "@11ty/eleventy": "^0.12.1"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "dayjs": "^1.10.4",
     "xxhash-addon": "^1.4.0"
   }

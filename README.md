@@ -1,10 +1,6 @@
----
-layout: base
----
+# IndieForums.net
 
-# indieforums
-
-Indieweb-based forums
+Proof-of-concept forums, powered by the IndieWeb
 
 To submit a post:
 u-syndication to https://indieforums.net
@@ -16,11 +12,9 @@ Possible future:
 u-syndication to https://indieforums.net/CATEGORY
 
 ## ToDo
-- [x] Make a single page from one of the top level links
-- [x] Get structure of webmentions figured out
-- [x] parse comment posts to threads.js data
-- [x] Integrate postOverrides in _data (needed for sticky threads)
-- [ ] Build a liquid time filter that returns "x minutes ago" if <60 minutes, day of week if less than a week ago, and full date for further
-- [ ] "reply" link that has a popup with html to copy for reply
-- [ ] flesh out post listings page (index) and thread pages html
-- [ ] Use dayjs to format times better ("5 minutes ago")
+- [ ] Welcome sticky post
+- [x] fetch webmentions
+- [ ] make forums text red or green in logo, give the whole thing a background?
+- [ ] make post avatars behave similar to dev.to
+- [ ] Remove dayjs dependency and do common dates ("Apr 5, 21")
+- [ ] Axios error handling and save successful webmentions
