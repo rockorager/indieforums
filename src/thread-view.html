@@ -15,19 +15,25 @@ layout: "base"
 
 <main class="thread-container">
 
+    <section class="thread-title">
+        <h1>{{thread.title}}</h1>
+    </section>
     {% for post in thread.posts reversed %}
         <article class="thread-post">
 
             <section class="post-author">
-                <a href="{{post.data.author.url}}" title="{{post.data.author.name}}"><img src="{{post.data.author.photo}}" alt="{{post.data.author.name}}" width="40px" class="avatar">
-                    <p class="post-author-name">{{thread.parent.data.author.name}}</p>
+                <a href="{{post.data.author.url}}" title="{{post.data.author.name}}">
+                    <img src="{{post.data.author.photo}}" alt="{{post.data.author.name}}" width="40px" class="avatar">
+                    {{thread.parent.data.author.name}}
+                </a>
+                 -
+                <a href="{{post.source}}" class="post-permalink">
+                    {{ post.data.published | dayjs }}
                 </a>
             </section>
 
             <section class="post-content">
-                <p class="post-permalink">
-                    <a href="{{post.source}}">{{ post.data.published | dayjs }}</a>
-                </p>
+
                 {{post.data.content}}
                 <details class="post-reply-to">
                     <summary>Reply</summary>
