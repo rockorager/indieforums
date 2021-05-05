@@ -13,6 +13,4 @@ u-syndication to https://indieforums.net/CATEGORY
 
 ## ToDo
 - [ ] Welcome sticky post
-- [ ] make forums text red or green in logo, give the whole thing a background?
-- [ ] make post avatars behave similar to dev.to
 - [ ] Axios error handling and save successful webmentions
