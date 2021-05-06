@@ -16,7 +16,7 @@ title: "IndieForums"
     {% for thread in pagination.items %}
 
         {% if thread.sticky == "true" %}
-            {%- comment -%}Have to do this weird thing because using the "where" filter isn't working on pagination.items{%- endcomment -%}
+            {%- comment -%}Have to do this inner if statement thing because using the "where" filter isn't working on pagination.items{%- endcomment -%}
             <article class="h-entry thread-list-container sticky">
                 <section class="thread-avatar">
                     <p>
