@@ -118,6 +118,9 @@ color: blue;
     max-width: 100%;
     display: block;
     margin: 0.5em auto;
+    -webkit-box-shadow: 10px rgba(0, 0, 0);
+    -moz-box-shadow: 10px rgba(0, 0, 0);
+    box-shadow: 0 0 5px 1px #333;
 }
 
 .post-permalink {
@@ -156,4 +159,17 @@ details textarea {
     resize: none;
     background-color: #f8f9fa;
     border: none;
+}
+
+/*----- Content styles -----*/
+code {
+    font-size: 16px;
+    font-family:monospace;
+    background-color: #DEDEDE;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6{
+    padding: 1em 0;
 }

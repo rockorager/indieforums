@@ -1,0 +1,42 @@
+---
+layout: base
+---
+
+<main class="thread-container">
+
+    <section class="thread-title">
+        <h1>{{title}}</h1>
+    </section>
+        <article class="thread-post">
+
+            <section class="post-author">
+                <a href="https://indieforums.net" title="IndieForums">
+                    <img src="/assets/img/logo.png" alt="IndieForums" width="40px" class="avatar">
+                    IndieForums
+                </a>
+                 -
+                <a href="{{page.url}}" class="post-permalink">
+                    {{ page.date | dayjs }}
+                </a>
+            </section>
+
+            <section class="post-content">
+
+                {{content}}
+                </section>
+            <section class="post-reply-info">
+                <details class="post-reply-to">
+                    <summary>Reply</summary>
+                    <p>
+                        <em>Include these links in your reply post</em>
+                        <p><textarea readonly="true" rows="4">
+<a href="{{post.source}}" class="u-in-reply-to"></a>
+<a class="u-syndication" href="https://indieforums.net/threads/{{page.url | hash}}"></a></textarea>
+                        </p>
+                    </p>
+                </details>
+            </section>
+
+
+        </article>
+</main>
