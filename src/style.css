@@ -19,8 +19,6 @@ footer {
     margin: 0 auto;
     text-align: center;
 }
-
-
 footer img {
     margin: 0 auto;
 }
@@ -37,6 +35,9 @@ nav {
 }
 nav h1 {
     flex-grow: 1;
+}
+nav form {
+    display: none;
 }
 main {
     max-width: 960px;
@@ -187,5 +188,9 @@ code {
 
     .thread-post, .thread-title {
         padding: 1em 0.5em;
+    }
+
+    nav form {
+        display: none;
     }
 }
