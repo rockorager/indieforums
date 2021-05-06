@@ -21,7 +21,6 @@ footer {
 }
 
 
-
 footer img {
     margin: 0 auto;
 }
@@ -32,6 +31,12 @@ nav, nav a{
     text-decoration: none;
     font-family:'Courier New', Courier, monospace;
     font-weight:normal;
+}
+nav {
+    display: flex;
+}
+nav h1 {
+    flex-grow: 1;
 }
 main {
     max-width: 960px;
@@ -102,25 +107,23 @@ color: blue;
 .post-author {
     padding-bottom: 1em;
 }
-.post-author img {
+.post-author a img {
     vertical-align: middle;
+    margin-right: 0.5em;
 }
 .post-author a {
     color: #333;
     text-decoration: none;
 }
 .post-content p {
-    padding-bottom: 1em;
+    margin-bottom: 1em;
 }
-
 
 .post-content img {
     max-width: 100%;
     display: block;
     margin: 0.5em auto;
-    -webkit-box-shadow: 10px rgba(0, 0, 0);
-    -moz-box-shadow: 10px rgba(0, 0, 0);
-    box-shadow: 0 0 5px 1px #333;
+    box-shadow: 0 0 5px 1px #888;
 }
 
 .post-permalink {
@@ -134,25 +137,24 @@ color: blue;
     color: blue;
 }
 
-/* -------- Styles for mobile --------- */
-@media only screen and (max-width: 500px) {
-    .thread-avatar, .thread-lastUpdated {
-      display: none;
-    }
-
-    .thread-post, .thread-title {
-        padding: 1em 0.5em;
-    }
-}
-
-/* ---- Reply button styles ---- */
-details {
+/* ---- Post footer styles ---- */
+.post-footer{
+    display: flex;
+    justify-content: flex-end;
     font-size: 14px;
     padding-top: 1em;
 }
+
+.post-footer a {
+    color:#333;
+}
+
+details {
+    flex-grow: 1;
+}
 summary{
     cursor: pointer;
-    width: 75px;
+    width: 65px;
 }
 details textarea {
     width: 100%;
@@ -160,6 +162,8 @@ details textarea {
     background-color: #f8f9fa;
     border: none;
 }
+
+
 
 /*----- Content styles -----*/
 code {
@@ -171,5 +175,17 @@ code {
 }
 
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6{
-    padding: 1em 0;
+    margin: 1em 0;
+}
+
+
+/* -------- Styles for mobile --------- */
+@media only screen and (max-width: 500px) {
+    .thread-avatar, .thread-lastUpdated {
+      display: none;
+    }
+
+    .thread-post, .thread-title {
+        padding: 1em 0.5em;
+    }
 }

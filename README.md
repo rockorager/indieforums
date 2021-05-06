@@ -13,6 +13,4 @@ u-syndication to https://indieforums.net/CATEGORY
 
 ## ToDo
 - [ ] Welcome sticky post
-- [ ] Axios error handling and save successful webmentions
 - [ ] Add duck duck go search
-- [ ] Add a report button that emails report@indieforums.net

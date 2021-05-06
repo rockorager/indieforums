@@ -23,9 +23,7 @@ layout: "base"
 
             <section class="post-author">
                 <a href="{{post.data.author.url}}" title="{{post.data.author.name}}">
-                    <img src="{{post.data.author.photo}}" alt="{{post.data.author.name}}" width="40px" class="avatar">
-                    {{thread.parent.data.author.name}}
-                </a>
+                    <img src="{{post.data.author.photo}}" alt="{{post.data.author.name}}" width="40px" class="avatar">{{thread.parent.data.author.name}}</a>
                  -
                 <a href="{{post.source}}" class="post-permalink">
                     {{ post.data.published | dayjs }}
@@ -36,7 +34,7 @@ layout: "base"
 
                 {{post.data.content}}
                 </section>
-            <section class="post-reply-info">
+            <section class="post-footer">
                 <details class="post-reply-to">
                     <summary>Reply</summary>
                     <p>
@@ -47,6 +45,7 @@ layout: "base"
                         </p>
                     </p>
                 </details>
+                <a class="post-report" href="mailto:report@indieforums.net?subject=Problem with post {{post.id}}">⚠ Report</a>
             </section>
 
 
