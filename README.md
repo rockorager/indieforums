@@ -13,4 +13,3 @@ u-syndication to https://indieforums.net/CATEGORY
 
 ## ToDo
 - [ ] Welcome sticky post
-- [ ] Add duck duck go search
