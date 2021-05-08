@@ -148,8 +148,8 @@ color: blue;
 
 .post-footer a {
     color:#333;
+    text-decoration: none;
 }
-
 details {
     flex-grow: 1;
 }
@@ -163,7 +163,9 @@ details textarea {
     background-color: #f8f9fa;
     border: none;
 }
-
+.report-icon {
+    font-size: 12px;
+}
 
 
 /*----- Content styles -----*/

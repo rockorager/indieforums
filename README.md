@@ -13,3 +13,4 @@ u-syndication to https://indieforums.net/CATEGORY
 
 ## ToDo
 - [ ] Welcome sticky post
+- [ ] Use material icons?

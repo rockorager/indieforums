@@ -6,7 +6,7 @@ dayjs.extend(relativeTime);
 module.exports = function (eleventyConfig) {
     
     // Passthrough files
-    eleventyConfig.addPassthroughCopy({ "src/assets/img": "assets/img" });
+    eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
     eleventyConfig.addPassthroughCopy({ "src/style.css": "style.css" });
     eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
     
