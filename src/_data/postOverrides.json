@@ -1,28 +1,28 @@
 [
     {
-        "source": "https://timculverhouse.com/indieweb/note",
+        "source": "https://www.indieforums.net/self/starthere.html",
         "verified": true,
-        "verified_date": "2021-05-03T11:39:08+00:00",
-        "id": 1142510,
+        "verified_date": "2021-05-11T20:35:56+00:00",
+        "id": 1152151,
         "private": false,
         "data": {
-            "author": {
-                "name": "Tim Culverhouse",
-                "url": "https://www.timculverhouse.com",
-                "photo": "https://webmention.io/avatar/timculverhouse.com/ccbafccbc7e80685651fd70418e2a167c4fde13c839da015147f391d6893560f.jpg"
-            },
-            "url": "https://timculverhouse.com/indieweb/note",
-            "name": null,
-            "content": "<p>I added webmentions to my site today! I found which made it all really easy.</p>\n\n<p>I haven’t automated rebuilds or sending yet, that will still be manual for now…but nothing wrong with incrementalism!</p>\n\n<p><a href=\"https://indieforums.net\" class=\"u-syndication\">Cross-posted to indieforums</a></p>",
-            "published": "2021-04-23T19:03:04+00:00",
-            "published_ts": 1619204584
+          "author": {
+            "name": "IndieForums",
+            "url": null,
+            "photo": "https://webmention.io/avatar/www.indieforums.net/9a8b2d6841e0deec08a9086673e47354054a1704cf49a23a72bfac75d6c6d397.png"
+          },
+          "url": "https://www.indieforums.net/self/starthere.html",
+          "name": "Welcome to IndieForums!",
+          "content": "<p>IndieForums is a proof-of-concept site built around the <a href=\"https://indieweb.org\">IndieWeb</a>. All content on this site (with the exception of /self/ posts) is generated through <a href=\"https://webmention.io\">webmentions</a>.</p>\n<h2>Quick Start</h2>\n<h3>📝 New Thread</h3>\n<p>Send a webmention from your post to indieforums.net. That's it. The cleanest way to do this is an empty <code>a</code> tag with <code>class=\"u-syndication\"</code>.</p>\n<p><img src=\"https://www.indieforums.net/assets/img/indieforums-syndication-example.png\" alt=\"Example of syndication link\" /></p>\n<h3>↩️ Reply to a thread</h3>\n<p>Send a webmention to the URL of said thread (\"https://www.indieforums.net/threads/7de25018ef5fdcbf.html\"). You should include a reply-to webmention back to the original authors site, too. To make this easy, just click reply on any post and the links for that post will be ready for you!</p>\n<p><img src=\"https://www.indieforums.net/assets/img/indieforums-reply-example.png\" alt=\"Example of reply\" /></p>\n<h3>⚠️ Report a post</h3>\n<p>Click the Report link at the bottom of each post to open a new email (please leave the subject as-is). The body of the email should contain the issue you see with that post.</p>\n<h3>❓ I don't have a site</h3>\n<p>Check out the <a href=\"https://indieweb.org/Getting_Started\">Getting Started</a> section of the IndieWeb wiki. <a href=\"https://micro.blog\">Micro.blog</a> is probably your quickest choice.</p>\n<h2>But why?</h2>\n<p>The IndieWeb is a decentralized way of interacting on the internet. Through webmentions, one site (or person, organization, etc) can tell another that it was linked to, that they replied to a post, liked a page, RSVP'd to an event, bookmarked a page, etc. You can also syndicate your post to other sites, and that is the mechanism for publishing to IndieForums. Using the IndieWeb to run a forum means the forum needs no database, usernames, passwords, forms, etc. All content is independently archived somewhere else on the internet.</p>\n<p>In my random reading about IndieWeb things, I ran across <a href=\"https://news.indieweb.org\">IndieWeb News</a>, a news aggregator built by <a href=\"https://aaronparecki.com\">Aaron Parecki</a>, one of the founders of the IndieWeb. It looked like an awesome idea and I thought it would be cool to add comments and I thought \"I could build that\"...so I did!</p>\n<p>And why a forum? Who doesn't like old-school forums? You want threaded comments? Not here! Just plain old sort-by-new, single threads.</p>\n<h2>More site details</h2>\n<p>This site is statically generated every time a webmention is sent. It doesn't use any client-side javascript. It doesn't track you (well, Netlify does to some degree).</p>\n<p>This site is built using the following tools:</p>\n<ul><li>\n<a href=\"https://www.11ty.dev\">11ty</a> to build the site</li>\n<li>\n<a href=\"https://github.com\">Github</a> to host the repository</li>\n<li>\n<a href=\"https://netlify.com\">Netlify</a> to host the site</li>\n<li>\n<a href=\"https://webmention.io/\">Webmention.io</a> to receive webmentions</li>\n</ul><p><a href=\"https://www.indieforums.net\" class=\"u-syndication\"></a></p>",
+          "published": "2021-05-11T20:29:03+00:00",
+          "published_ts": 1620764943
         },
         "activity": {
-            "type": "link",
-            "sentence": "Tim Culverhouse posted 'I added webmentions to my site today! I found which made it all really easy.    ...' linking to https://indieforums.net",
-            "sentence_html": "<a href=\"https://www.timculverhouse.com\">Tim Culverhouse</a> posted 'I added webmentions to my site today! I found which made it all really easy.    ...' linking to <a href=\"https://indieforums.net\">https://indieforums.net</a>"
+          "type": "link",
+          "sentence": "IndieForums posted 'IndieForums is a proof-of-concept site built around the IndieWeb. All content on...' linking to https://www.indieforums.net",
+          "sentence_html": "<a href=\"https://www.indieforums.net/self/starthere.html\">IndieForums</a> posted 'IndieForums is a proof-of-concept site built around the IndieWeb. All content on...' linking to <a href=\"https://www.indieforums.net\">https://www.indieforums.net</a>"
         },
-        "target": "https://indieforums.net",
+        "target": "https://www.indieforums.net",
         "sticky": "true"
-    }
+      }
 ]
