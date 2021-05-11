@@ -1,6 +1,6 @@
 ---
 title: starter
-date: 2021-05-06T08:14:09-05:00
+date: 2021-05-11T15:28:56-05:00
 layout: self
 permalink: /self/starter.html
 ---
