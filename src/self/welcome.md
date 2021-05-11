@@ -15,7 +15,7 @@ Send a webmention from your post to indieforums.net. That's it. The cleanest way
 ![Example of syndication link](../assets/img/indieforums-syndication-example.png)
 
 ### ↩️ Reply to a thread
-Send a webmention to the URL of said thread ("https://indieforums.net/threads/7de25018ef5fdcbf.html"). You should include a reply-to webmention back to the original authors site, too. To make this easy, just click reply on any post and the links for that post will be ready for you!
+Send a webmention to the URL of said thread ("https://www.indieforums.net/threads/7de25018ef5fdcbf.html"). You should include a reply-to webmention back to the original authors site, too. To make this easy, just click reply on any post and the links for that post will be ready for you!
 
 ![Example of reply](../assets/img/indieforums-reply-example.png)
 
