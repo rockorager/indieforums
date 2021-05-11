@@ -2,7 +2,7 @@
 title: Welcome to IndieForums!
 date: 2021-05-11T15:29:03-05:00
 layout: self
-permalink: /self/welcome.html
+permalink: /self/starthere.html
 ---
 
 IndieForums is a proof-of-concept site built around the [IndieWeb](https://indieweb.org). All content on this site (with the exception of /self/ posts) is generated through [webmentions](https://webmention.io).
