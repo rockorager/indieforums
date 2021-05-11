@@ -43,3 +43,5 @@ This site is built using the following tools:
 - [Github](https://github.com) to host the repository
 - [Netlify](https://netlify.com) to host the site
 - [Webmention.io](https://webmention.io/) to receive webmentions
+
+<a href="https://www.indieforums.net" class="u-syndication"></a>
