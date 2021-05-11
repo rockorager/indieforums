@@ -5,7 +5,7 @@ const xxhash64 = require('../../xxhash64');
 module.exports = async function () {
     //fetch the data
 
-    var { data } = await axios.get("https://webmention.io/api/mentions?token=by886801GY0dxjaF6rNiVg")
+    var { data } = await axios.get("https://webmention.io/api/mentions?token=S688iWb8vzso6tvIwNbFow")
 // put in error handling
     let webmentions = data;
     
