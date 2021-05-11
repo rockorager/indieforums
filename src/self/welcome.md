@@ -29,7 +29,7 @@ Check out the [Getting Started](https://indieweb.org/Getting_Started) section of
 
 The IndieWeb is a decentralized way of interacting on the internet. Through webmentions, one site (or person, organization, etc) can tell another that it was linked to, that they replied to a post, liked a page, RSVP'd to an event, bookmarked a page, etc. You can also syndicate your post to other sites, and that is the mechanism for publishing to IndieForums. Using the IndieWeb to run a forum means the forum needs no database, usernames, passwords, forms, etc. All content is independently archived somewhere else on the internet.
 
-In my random reading about IndieWeb things, I ran across [IndieWeb News](https://news.indieweb.org), a news aggregator built by [Aaron Parecki]((https://aaronparecki.com), one of the founders of the IndieWeb. It looked like an awesome idea and I thought it would be cool to add comments and I thought "I could build that"...so I did!
+In my random reading about IndieWeb things, I ran across [IndieWeb News](https://news.indieweb.org), a news aggregator built by [Aaron Parecki](https://aaronparecki.com), one of the founders of the IndieWeb. It looked like an awesome idea and I thought it would be cool to add comments and I thought "I could build that"...so I did!
 
 And why a forum? Who doesn't like old-school forums? You want threaded comments? Not here! Just plain old sort-by-new, single threads.
 
