@@ -2,25 +2,25 @@
 layout: base
 ---
 
-<main class="thread-container">
+<main class="h-entry thread-container">
 
-    <section class="thread-title">
+    <section class="p-name thread-title">
         <h1>{{title}}</h1>
     </section>
         <article class="thread-post">
 
-            <section class="post-author">
+            <section class="p-author h-card post-author">
                 <a href="https://www.indieforums.net" title="IndieForums">
-                    <img src="/assets/img/logo.png" alt="IndieForums" width="40px" class="avatar">
+                    <img src="/assets/img/logo.png" alt="IndieForums" width="40px" class="u-photo avatar">
                     IndieForums
                 </a>
                  -
-                <a href="{{page.url}}" class="post-permalink">
+                <a href="{{page.url}}" class="u-url post-permalink">
                     {{ page.date | dayjs }}
                 </a>
             </section>
 
-            <section class="post-content">
+            <section class="e-content post-content">
 
                 {{content}}
                 </section>
