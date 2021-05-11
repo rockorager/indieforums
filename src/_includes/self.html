@@ -16,7 +16,7 @@ layout: base
                 </a>
                  -
                 <a href="{{page.url}}" class="u-url post-permalink">
-                    {{ page.date | dayjs }}
+                    <time class="dt-published" datetime="{{ page.date }}">{{ page.date | dayjs }}</time>
                 </a>
             </section>
 
