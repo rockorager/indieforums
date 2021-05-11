@@ -7,4 +7,4 @@ permalink: /self/starter1.html
 
 Starter page!
 
-<a href="https://www.indieforums.net/self/welcome.html" class="u-syndication"></a>
+<a href="https://www.indieforums.net/self/starthere.html" class="u-syndication"></a>
