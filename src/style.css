@@ -153,6 +153,11 @@ color: blue;
 details {
     flex-grow: 1;
 }
+details summary::-webkit-details-marker,
+details summary::marker {
+ display: none; 
+ content: "";
+}
 summary{
     cursor: pointer;
     width: 65px;
@@ -166,7 +171,9 @@ details textarea {
 .report-icon {
     font-size: 12px;
 }
-
+svg {
+    vertical-align: top;
+}
 
 /*----- Content styles -----*/
 code {
