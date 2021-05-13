@@ -27,14 +27,14 @@ nav, nav a{
     margin: 0 auto;
     color: #FFF;
     text-decoration: none;
-    font-family:'Courier New', Courier, monospace;
-    font-weight:normal;
+    font-family: 'Courier New', Courier, monospace;
 }
 nav {
     display: flex;
 }
 nav h1 {
     flex-grow: 1;
+    font-size: 2em;
 }
 nav form {
     display: none;
