@@ -20,7 +20,7 @@ title: "IndieForums"
             <article class="h-entry thread-list-container sticky">
                 <section class="thread-avatar">
                     <p>
-                        <a href="{{thread.parent.data.author.url}}" title="{{thread.parent.data.author.name}}"><img src="{{thread.parent.data.author.photo}}" alt="{{thread.parent.data.author.name}}" width="40px" class="avatar"></a>
+                        <a href="{{thread.parent.author.url}}" title="{{thread.parent.author.name}}"><img src="{{thread.parent.author.photo}}" alt="{{thread.parent.author.name}}" width="40px" class="avatar"></a>
                     </p>
                 </section>
 
@@ -29,17 +29,17 @@ title: "IndieForums"
                         <a href="/threads/{{thread.hash}}.html">📌 {{ thread.title }}</a>
                     </h3>
                     <p class="thread-author">Posted by
-                        <a href="{{thread.parent.data.author.url}}">{{thread.parent.data.author.name}}</a>
+                        <a href="{{thread.parent.author.url}}">{{thread.parent.author.name}}</a>
                         on
-                        <a href="{{thread.parent.source}}">{{thread.parent.data.published | dayjs }}</a>
+                        <a href="{{thread.parent.wm-source}}">{{thread.parent.published | dayjs }}</a>
                     </p>
                 </section>
                 <section class="thread-replies">
                     <a href="/threads/{{thread.hash}}.html"><p>{% include icons/comments.svg %} {{thread.posts | size | minus: 1}}</p></a>
                 </section>
                 <section class="thread-lastUpdated">
-                    <a href="{{thread.posts[0].source}}"><p>{{thread.lastUpdated | dayjs }}</p></a>
-                    by <a href="{{thread.posts[0].data.author.url}}">{{thread.posts[0].data.author.name}}</a>
+                    <a href="{{thread.posts[0].wm-source}}"><p>{{thread.lastUpdated | dayjs }}</p></a>
+                    by <a href="{{thread.posts[0].author.url}}">{{thread.posts[0].author.name}}</a>
                 </section>
             </article>
         {% endif %}
@@ -52,7 +52,7 @@ title: "IndieForums"
             <article class="h-entry thread-list-container">
                 <section class="thread-avatar">
                     <p>
-                        <a href="{{thread.parent.data.author.url}}" title="{{thread.parent.data.author.name}}"><img src="{{thread.parent.data.author.photo}}" alt="{{thread.parent.data.author.name}}" width="40" class="avatar"></a>
+                        <a href="{{thread.parent.author.url}}" title="{{thread.parent.author.name}}"><img src="{{thread.parent.author.photo}}" alt="{{thread.parent.author.name}}" width="40" class="avatar"></a>
                     </p>
                 </section>
 
@@ -61,9 +61,9 @@ title: "IndieForums"
                         <a href="/threads/{{thread.hash}}.html">{{ thread.title }}</a>
                     </h3>
                     <p class="thread-author">Posted by
-                        <a href="{{thread.parent.data.author.url}}">{{thread.parent.data.author.name}}</a>
+                        <a href="{{thread.parent.author.url}}">{{thread.parent.author.name}}</a>
                         on
-                        <a href="{{thread.parent.source}}">{{thread.parent.data.published | dayjs }}</a>
+                        <a href="{{thread.parent.wm-source}}">{{thread.parent.published | dayjs }}</a>
                     </p>
                 </section>
                 <section class="thread-replies">
@@ -73,11 +73,11 @@ title: "IndieForums"
                     </a>
                 </section>
                 <section class="thread-lastUpdated">
-                    <a href="{{thread.posts[0].source}}">
+                    <a href="{{thread.posts[0].wm-source}}">
                         <p>{{thread.lastUpdated | dayjs }}</p>
                     </a>
                     by
-                    <a href="{{thread.posts[0].data.author.url}}">{{thread.posts[0].data.author.name}}</a>
+                    <a href="{{thread.posts[0].author.url}}">{{thread.posts[0].author.name}}</a>
                 </section>
 
             </article>

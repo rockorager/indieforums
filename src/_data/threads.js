@@ -4,8 +4,9 @@ const xxhash64 = require('../../xxhash64');
 
 module.exports = async function () {
     //fetch the data
-
-    var { data } = await axios.get("https://webmention.io/api/mentions?token=S688iWb8vzso6tvIwNbFow")
+    // https://webmention.io/api/mentions.jf2?target=http://rhiaro.co.uk/2015/07/digital-memories
+    // 
+    var { data } = await axios.get("https://webmention.io/api/mentions.jf2?token=S688iWb8vzso6tvIwNbFow")
 // put in error handling
     let webmentions = data;
     
@@ -13,20 +14,19 @@ module.exports = async function () {
     var threads = [];
 
     // Iterate through all webmentions
-    for (var post of webmentions.links) {
+    for (var post of webmentions.children) {
         // initialize sticky, override will modify
         post.sticky = "false";
-
         // Get overrides
         var override = postOverrides.filter(function (ovr) {
-            return (ovr.id === post.id);
+            return (ovr["wm-id"] === post["wm-id"]);
         });
 
         if (override.length > 0) {
             post = override[0];
         };
         // Get the path the post was targetting
-        var targetAsUrl = new URL(post.target);
+        var targetAsUrl = new URL(post["wm-target"]);
         post.pathname = targetAsUrl.pathname;
 
         // If the post is not targeting an existing thread, process as top level post
@@ -34,7 +34,7 @@ module.exports = async function () {
 
             // Get thread object, if it already exists
             var filteredThreads = threads.filter(function (thr) {
-                var postHash = xxhash64(post.source);
+                var postHash = xxhash64(post.wm-source);
                 return (thr.hash === postHash);
             });
             if (filteredThreads.length === 0) {
@@ -48,18 +48,17 @@ module.exports = async function () {
             };
 
             // posters can specify a thread category at syndication time by syndicating to indieforums.net/CATEGORY, or leave blank
-            if (post.data.name === null) {
-                post.data.name = "Untitled";
+            if (post.name === null) {
+                post.name = "[Untitled thread]";
             }
 
             // Set thread properties
             thread.category = post.pathname.split("/")[1];
             thread.sticky = post.sticky;
-            thread.hash = xxhash64(post.source);
-            thread.title = post.data.name;
+            thread.hash = xxhash64(post["wm-source"]);
+            thread.title = post.name;
             thread.posts.push(post);
             thread.parent = post;
-
         } else {
             // Handle the post as a comment on an existing thread
 
@@ -88,13 +87,13 @@ module.exports = async function () {
     // Sort posts (newest to oldest) and set thread.lastUpdated
     for (var thread of threads) {
         thread.posts.sort(function (a, b) {
-            var c = new Date(a.data.published);
-            var d = new Date(b.data.published);
+            var c = new Date(a.published);
+            var d = new Date(b.published);
             return d - c;
         });
 
         // Set thread updated date
-        thread.lastUpdated = thread.posts[0].data.published;
+        thread.lastUpdated = thread.posts[0].published;
     };
 
     // Sort threads by lastUpdated

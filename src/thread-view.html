@@ -23,17 +23,17 @@ layout: "base"
         <article class="thread-post">
 
             <section class="post-author">
-                <a href="{{post.data.author.url}}" title="{{post.data.author.name}}">
-                    <img src="{{post.data.author.photo}}" alt="{{post.data.author.name}}" width="40px" class="avatar">{{thread.parent.data.author.name}}</a>
+                <a href="{{post.author.url}}" title="{{post.author.name}}">
+                    <img src="{{post.author.photo}}" alt="{{post.author.name}}" width="40px" class="avatar">{{thread.parent.author.name}}</a>
                  -
                 <a href="{{post.source}}" class="post-permalink">
-                    {{ post.data.published | dayjs }}
+                    {{ post.published | dayjs }}
                 </a>
             </section>
 
             <section class="post-content">
 
-                {{post.data.content}}
+                {{post.content.html}}
                 </section>
             <section class="post-footer">
                 <details class="post-reply-to">
@@ -41,12 +41,12 @@ layout: "base"
                     <p>
                         <em>Include these links in your reply post</em>
                         <p><textarea readonly="true" rows="4" label="Reply links">
-<a href="{{post.source}}" class="u-in-reply-to"></a>
+<a href="{{post.wm-source}}" class="u-in-reply-to"></a>
 <a class="u-syndication" href="https://www.indieforums.net{{page.url}}"></a></textarea>
                         </p>
                     </p>
                 </details>
-                <a class="post-report" href="mailto:report@indieforums.net?subject=Problem with post {{post.id}}">{% include icons/report.svg %} Report</a>
+                <a class="post-report" href="mailto:report@indieforums.net?subject=Problem with post {{post.wm-id}}">{% include icons/report.svg %} Report</a>
             </section>
 
 
