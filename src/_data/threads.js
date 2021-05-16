@@ -23,7 +23,7 @@ module.exports = async function () {
         });
 
         if (override.length > 0) {
-            post = override[0];
+            post = Object.assign(post,override[0]);
         };
         // Get the path the post was targetting
         var targetAsUrl = new URL(post["wm-target"]);
