@@ -36,15 +36,14 @@ layout: "base"
                 {{post.content.html}}
                 </section>
             <section class="post-footer">
+                
                 <details class="post-reply-to">
                     <summary>{% include icons/reply.svg %} Reply</summary>
-                    <p>
-                        <em>Include these links in your reply post</em>
-                        <p><textarea readonly="true" rows="4" label="Reply links">
-<a href="{{post.wm-source}}" class="u-in-reply-to"></a>
-<a class="u-syndication" href="https://www.indieforums.net{{page.url}}"></a></textarea>
-                        </p>
-                    </p>
+                    <em>Include these links in your reply post</em>
+                    <section class="reply-links">
+                        <p>&#060a href="{{post.wm-source}}" class="u-in-reply-to"&#062&#060/a&#062<br/>
+                        &#060a href="https://www.indieforums.net{{page.url}}" class="u-syndication"&#062&#060/a&#062</p>
+                    </section>
                 </details>
                 <a class="post-report" href="mailto:report@indieforums.net?subject=Problem with post {{post.wm-id}}">{% include icons/report.svg %} Report</a>
             </section>

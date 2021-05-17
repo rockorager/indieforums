@@ -161,11 +161,10 @@ summary{
     cursor: pointer;
     width: 65px;
 }
-details textarea {
-    width: 100%;
-    resize: none;
+.reply-links {
     background-color: #f8f9fa;
-    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
 }
 .report-icon {
     font-size: 12px;
@@ -182,6 +181,7 @@ code {
     padding: 4px;
     border-radius: 2px;
 }
+
 
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6{
     margin: 1em 0;
