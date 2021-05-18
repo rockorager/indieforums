@@ -163,7 +163,7 @@ summary{
 }
 .reply-links {
     background-color: #f8f9fa;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: monospace;
     font-size: 12px;
 }
 .report-icon {
