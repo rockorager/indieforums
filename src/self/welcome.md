@@ -5,14 +5,16 @@ layout: self
 permalink: /self/starthere.html
 ---
 
-IndieForums is a proof-of-concept site built around the [IndieWeb](https://indieweb.org). All content on this site (with the exception of /self/ posts) is generated through [webmentions](https://webmention.io).
+IndieForums is a proof-of-concept site built around the [IndieWeb](https://www.indieweb.org). All content on this site (with the exception of /self/ posts) is generated through [webmentions](https://webmention.io).
 
 ## Quick Start
 
 ### 📝 New Thread
-Send a webmention from your post to indieforums.net. That's it. The cleanest way to do this is an empty `a` tag with `class="u-syndication"`. 
+Send a webmention from your post to www.indieforums.net. That's it. The cleanest way to do this is an empty `a` tag with `class="u-syndication"`. 
 
-![Example of syndication link](../assets/img/indieforums-syndication-example.png)
+```
+<a href="https://www.indieforums.net" class="u-syndication"></a>
+``` 
 
 ### ↩️ Reply to a thread
 Send a webmention to the URL of said thread ("https://www.indieforums.net/threads/7de25018ef5fdcbf.html"). You should include a reply-to webmention back to the original authors site, too. To make this easy, just click reply on any post and the links for that post will be ready for you!

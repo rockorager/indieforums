@@ -24,7 +24,7 @@ module.exports = function (eleventyConfig) {
             return inp.format("MMM D, YYYY");
         };
     });
-    
+
     // Files to convert are in src
     return {
         dir: {
