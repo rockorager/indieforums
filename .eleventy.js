@@ -18,11 +18,14 @@ module.exports = function (eleventyConfig) {
     
     eleventyConfig.addFilter("dayjs", function (inp) {
         inp = dayjs(inp);
+        return inp.format("MMM D, YYYY");
+        /*
         if (dayjs().diff(inp, 'day') < 5) {
             return inp.format("MMM D h:mm A");
         } else {
             return inp.format("MMM D, YYYY");
         };
+        */
     });
 
     // Files to convert are in src
