@@ -7,7 +7,6 @@ module.exports = function (eleventyConfig) {
     
     // Passthrough files
     eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
-    eleventyConfig.addPassthroughCopy({ "src/style.css": "style.css" });
     eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
     
     // Add hash filter

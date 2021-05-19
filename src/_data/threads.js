@@ -3,11 +3,9 @@ const axios = require('axios');
 const xxhash64 = require('../../xxhash64');
 
 module.exports = async function () {
-    //fetch the data
-    // https://webmention.io/api/mentions.jf2?target=http://rhiaro.co.uk/2015/07/digital-memories
-    // 
+    // Fetch the webmentions
     var { data } = await axios.get("https://webmention.io/api/mentions.jf2?token=S688iWb8vzso6tvIwNbFow")
-// put in error handling
+
     let webmentions = data;
     
     // Initialize the array we are building
@@ -48,6 +46,9 @@ module.exports = async function () {
             };
 
             // posters can specify a thread category at syndication time by syndicating to indieforums.net/CATEGORY, or leave blank
+            // TODO: add category feature
+            
+            // Set post name if it doesn't have one
             if (post.name === null) {
                 post.name = "[Untitled thread]";
             }
@@ -64,12 +65,11 @@ module.exports = async function () {
 
             // Extract the hash from the URL
             var targetHash = post.pathname.split("/")[2].split(".")[0];
+            
             // Get thread if it already exists
             var filteredThreads = threads.filter(function (thr) {
                 return (thr.hash === targetHash);
             });
-
-
             if (filteredThreads.length < 1) {
                 // we only get here if a comment was parsed before the top level
                 var thread = {};
