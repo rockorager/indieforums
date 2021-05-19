@@ -1,0 +1,28 @@
+{
+  "name": "indieforums",
+  "version": "1.0.0",
+  "description": "Forums for the Indieweb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rockorager/indieforums.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rockorager/indieforums/issues"
+  },
+  "homepage": "https://github.com/rockorager/indieforums#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dayjs": "^1.10.4",
+    "xxhash-addon": "^1.4.0"
+  }
+}

@@ -1,0 +1,54 @@
+---js
+{
+pagination: {
+  data: "threads",
+  alias: "thread",
+  size: 1,
+  addAllPagesToCollections: true
+},
+permalink: "/threads/{{ thread.hash }}.html",
+eleventyComputed: {
+  title: "{{ thread.title }}"
+},
+layout: "base"
+}
+---
+
+<main class="thread-container">
+
+    <section class="thread-title">
+        <h1>{{thread.title}}</h1>
+    </section>
+    {% for post in thread.posts reversed %}
+        <article class="thread-post">
+
+            <section class="post-author">
+                <a href="{{post.author.url}}" title="{{post.author.name}}">
+                    <img src="{{post.author.photo}}" alt="{{post.author.name}}" width="40px" height="40px" class="avatar">{{thread.parent.author.name}}</a>
+                 -
+                <a href="{{post.source}}" class="post-permalink">
+                    {{ post.published | dayjs }}
+                </a>
+            </section>
+
+            <section class="post-content">
+
+                {{post.content.html}}
+                </section>
+            <section class="post-footer">
+                
+                <details class="post-reply-to">
+                    <summary>{% include icons/reply.svg %} Reply</summary>
+                    <em>Include these links in your reply post</em>
+                    <section class="reply-links">
+                        <p>&#060a href="{{post.wm-source}}" class="u-in-reply-to"&#062&#060/a&#062<br/>
+                        &#060a href="https://www.indieforums.net{{page.url}}" class="u-syndication"&#062&#060/a&#062</p>
+                    </section>
+                </details>
+                <a class="post-report" href="mailto:report@indieforums.net?subject=Problem with post {{post.wm-id}}">{% include icons/report.svg %} Report</a>
+            </section>
+
+
+        </article>
+    {% endfor %}
+</main>
