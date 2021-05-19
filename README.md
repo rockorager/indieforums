@@ -1,16 +1,22 @@
 # IndieForums.net
 
-Proof-of-concept forums, powered by the IndieWeb
+Proof-of-concept forums, powered by webmentions
 
 To submit a post:
-u-syndication to https://indieforums.net
+`class="u-syndication"` to https://www.indieforums.net
 
 To submit a reply:
-u-syndication to https://indieforums.net/threads/THREAD-URL.html
+`class="u-syndication"` to https://www.indieforums.net/threads/THREADHASH.html
 
-Possible future: 
-u-syndication to https://indieforums.net/CATEGORY
+Features:
+- Statically generated
+- No client-side javascript
+- No tracking
+- Moderation
 
 ## ToDo
-- [ ] Welcome sticky post
-- [ ] Use material icons?
+- [ ] Finish category feature (webmention to https://www.indieforums.net/CATEGORY)
+- [ ] Auth?
+- [ ] Micropub replies and posts?
+- [ ] RSS for individual threads
+
