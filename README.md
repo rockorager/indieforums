@@ -19,4 +19,5 @@ Features:
 - [ ] Auth?
 - [ ] Micropub replies and posts?
 - [ ] RSS for individual threads
+- [ ] Update webmention feed to the .jf2 version
 
