@@ -1,7 +1,7 @@
 {
   "name": "indieforums",
   "version": "1.0.0",
-  "description": "To submit a top-level post, it must have title and be of type:\r - article\r - note\r - event (?)",
+  "description": "Forums for the Indieweb",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +19,10 @@
   "homepage": "https://github.com/rockorager/indieforums#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dayjs": "^1.10.4",
+    "xxhash-addon": "^1.4.0"
   }
 }

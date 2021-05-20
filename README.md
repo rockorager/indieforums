@@ -1,18 +1,22 @@
----
-layout: base
----
+# IndieForums.net
 
-# indieforums
+Proof-of-concept forums, powered by webmentions
 
-To submit a top-level post, it must have title and be of type:
-- article
-- note
-- event (?)
+To submit a post:
+`class="u-syndication"` to https://www.indieforums.net
 
-Replies will ignore the title
+To submit a reply:
+`class="u-syndication"` to https://www.indieforums.net/threads/THREADHASH.html
+
+Features:
+- Statically generated
+- No client-side javascript
+- No tracking
+- Moderation
 
 ## ToDo
-- [ ] Make a single page from one of the top level links
-- [ ] Get structure of webmentions figured out
-  - [ ] top level are type note, article, photo, bookmark to start
-  - [ ] 
+- [ ] Finish category feature (webmention to https://www.indieforums.net/CATEGORY)
+- [ ] Auth?
+- [ ] Micropub replies and posts?
+- [ ] RSS for individual threads
+
