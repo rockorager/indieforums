@@ -24,7 +24,17 @@ module.exports = async function () {
             post = Object.assign(post,override[0]);
         };
         // Get the path the post was targetting
-        var targetAsUrl = new URL(post["wm-target"]);
+        function matches(text, partial) {
+            return text.toLowerCase().indexOf(partial.toLowerCase()) > -1
+        }
+        for (i in post.syndication) {
+            console.log(post.syndication[i]);
+            if (matches(post.syndication[i],"indieforums.net")) {
+                var targetAsUrl = new URL(post.syndication[i]);
+            }
+        }
+
+        // var targetAsUrl = new URL(post["wm-target"]);
         post.pathname = targetAsUrl.pathname;
 
         // If the post is not targeting an existing thread, process as top level post
@@ -32,7 +42,7 @@ module.exports = async function () {
 
             // Get thread object, if it already exists
             var filteredThreads = threads.filter(function (thr) {
-                var postHash = xxhash64(post.wm-source);
+                var postHash = xxhash64(post["wm-source"]);
                 return (thr.hash === postHash);
             });
             if (filteredThreads.length === 0) {

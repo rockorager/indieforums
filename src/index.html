@@ -67,10 +67,7 @@ title: "IndieForums"
                     </p>
                 </section>
                 <section class="thread-replies">
-                    <a href="/threads/{{thread.hash}}.html">
-                        <p>💬
-                            {{thread.posts | size | minus: 1}}</p>
-                    </a>
+                    <a href="/threads/{{thread.hash}}.html"><p>{% include icons/comments.svg %} {{thread.posts | size | minus: 1}}</p></a>
                 </section>
                 <section class="thread-lastUpdated">
                     <a href="{{thread.posts[0].wm-source}}">
