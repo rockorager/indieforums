@@ -37,6 +37,12 @@ module.exports = async function () {
         // var targetAsUrl = new URL(post["wm-target"]);
         post.pathname = targetAsUrl.pathname;
 
+        // Set post published if it is null
+        if (post.published === null) {
+            post.published = post["wm-received"];
+        }
+
+
         // If the post is not targeting an existing thread, process as top level post
         if (!post.pathname.includes("threads")) {
 
