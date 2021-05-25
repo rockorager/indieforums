@@ -4,7 +4,7 @@ const xxhash64 = require('../../xxhash64');
 
 module.exports = async function () {
     // Fetch the webmentions
-    var { data } = await axios.get("https://webmention.io/api/mentions.jf2?token=S688iWb8vzso6tvIwNbFow")
+    var { data } = await axios.get("https://webmention.io/api/mentions.jf2?token=S688iWb8vzso6tvIwNbFow");
 
     let webmentions = data;
     
@@ -22,12 +22,12 @@ module.exports = async function () {
 
         if (override.length > 0) {
             post = Object.assign(post,override[0]);
-        };
+        }
         // Get the path the post was targetting
         function matches(text, partial) {
-            return text.toLowerCase().indexOf(partial.toLowerCase()) > -1
+            return text.toLowerCase().indexOf(partial.toLowerCase()) > -1;
         }
-        for (i in post.syndication) {
+        for (var i in post.syndication) {
             console.log(post.syndication[i]);
             if (matches(post.syndication[i],"indieforums.net")) {
                 var targetAsUrl = new URL(post.syndication[i]);
@@ -59,7 +59,7 @@ module.exports = async function () {
                 threads.push(thread);
             } else {
                 var thread = filteredThreads[0];
-            };
+            }
 
             // posters can specify a thread category at syndication time by syndicating to indieforums.net/CATEGORY, or leave blank
             // TODO: add category feature
@@ -96,9 +96,9 @@ module.exports = async function () {
                 threads.push(thread);
             } else {
                 filteredThreads[0].posts.push(post);
-            };
-        };
-    };
+            }
+        }
+    }
 
     // Sort posts (newest to oldest) and set thread.lastUpdated
     for (var thread of threads) {
@@ -110,7 +110,7 @@ module.exports = async function () {
 
         // Set thread updated date
         thread.lastUpdated = thread.posts[0].published;
-    };
+    }
 
     // Sort threads by lastUpdated
     threads.sort(function (a, b) {
