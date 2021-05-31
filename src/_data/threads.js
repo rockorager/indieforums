@@ -30,13 +30,13 @@ module.exports = async function () {
 
         if (matches(post["wm-target"],"indieforums.net")) {
             targetAsUrl = new URL(post["wm-target"]);
-        } else {
-            for (var i in post.syndication) {
-                if (matches(post.syndication[i],"indieforums.net")) {
-                    targetAsUrl = new URL(post.syndication[i]);
-                }
+        }
+        for (var i in post.syndication) {
+            if (matches(post.syndication[i],"indieforums.net")) {
+                targetAsUrl = new URL(post.syndication[i]);
             }
         }
+        
 
         post.pathname = targetAsUrl.pathname;
 
