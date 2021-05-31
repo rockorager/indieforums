@@ -7,7 +7,7 @@ module.exports = async function () {
     var { data } = await axios.get("https://webmention.io/api/mentions.jf2?token=S688iWb8vzso6tvIwNbFow");
 
     let webmentions = data;
-    
+    let targetAsUrl = {};
     // Initialize the array we are building
     var threads = [];
 
@@ -27,14 +27,17 @@ module.exports = async function () {
         function matches(text, partial) {
             return text.toLowerCase().indexOf(partial.toLowerCase()) > -1;
         }
-        for (var i in post.syndication) {
-            console.log(post.syndication[i]);
-            if (matches(post.syndication[i],"indieforums.net")) {
-                var targetAsUrl = new URL(post.syndication[i]);
+
+        if (matches(post["wm-target"],"indieforums.net")) {
+            targetAsUrl = new URL(post["wm-target"]);
+        } else {
+            for (var i in post.syndication) {
+                if (matches(post.syndication[i],"indieforums.net")) {
+                    targetAsUrl = new URL(post.syndication[i]);
+                }
             }
         }
 
-        // var targetAsUrl = new URL(post["wm-target"]);
         post.pathname = targetAsUrl.pathname;
 
         // Set post published if it is null
