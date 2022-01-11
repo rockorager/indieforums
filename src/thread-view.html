@@ -18,6 +18,11 @@ layout: "base"
 
     <section class="thread-title">
         <h1>{{thread.title}}</h1>
+        <% if thread.context %>
+            <h2>
+                {{thread.context.text}} <a href="{{thread.context.externalLink}}">{{thread.context.externalLink }}</a>
+            </h2>
+        <% endif %>
     </section>
     {% for post in thread.posts reversed %}
         <article class="thread-post">
