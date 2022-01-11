@@ -22,7 +22,7 @@ layout: "base"
             <h2>
                 {{thread.context.text}} <a href="{{thread.context.externalLink}}">{{thread.context.externalLink }}</a>
             </h2>
-        [% endif %}
+        {% endif %}
     </section>
     {% for post in thread.posts reversed %}
         <article class="thread-post">
