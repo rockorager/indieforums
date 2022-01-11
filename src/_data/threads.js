@@ -1,3 +1,4 @@
+const externalLinkPostTypes = require('./externalLinkPostTypes.json');
 const postOverrides = require('./postOverrides.json');
 const axios = require('axios');
 const xxhash64 = require('../../xxhash64');
@@ -79,6 +80,13 @@ module.exports = async function () {
             thread.title = post.name;
             thread.posts.push(post);
             thread.parent = post;
+            for (const [property, text] of Object.entries(externalLinkPostTypes)) {
+                const externalLink = post[property];
+                if (externalLink) {
+                    thread.context = { externalLink, text};
+                    break;
+                }
+            }
         } else {
             // Handle the post as a comment on an existing thread
 
