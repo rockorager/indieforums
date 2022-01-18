@@ -14,32 +14,39 @@ layout: "base"
 }
 ---
 
-<main class="thread-container">
+<main class="thread-container h-entry">
 
     <section class="thread-title">
-        <h1>{{thread.title}}</h1>
+        <h1 class="p-name">{{thread.title}}</h1>
         {% if thread.context %}
             <h2>
-                {{thread.context.text}} <a href="{{thread.context.externalLink}}">{{thread.context.externalLink }}</a>
+                {{thread.context.text}}
+                <a href="{{thread.context.externalLink}}" class="{{thread.context.microformatClass}}">{{thread.context.externalLink }}</a>
             </h2>
         {% endif %}
     </section>
     {% for post in thread.posts reversed %}
-        <article class="thread-post">
+        <article class="thread-post {% unless forloop.first %}u-comment h-entry{% endunless %}">
 
             <section class="post-author">
-                <a href="{{post.author.url}}" title="{{post.author.name}}">
-                    <img src="{{post.author.photo}}" alt="{{post.author.name}}" width="40px" height="40px" class="avatar"><b>{{post.author.name}}</b></a>
+                <span class="h-card">
+                    <a href="{{post.author.url}}" title="{{post.author.name}}" class="u-url">
+                        <img src="{{post.author.photo}}" alt="{{post.author.name}}" width="40px" height="40px" class="avatar u-photo">
+                        <b class="p-name">{{post.author.name}}</b>
+                    </a>
+                </span>
                  -
-                <a href="{{post.wm-source}}" class="post-permalink">
-                    {{ post.published | dayjs }}
+                <a href="{{post.wm-source}}" class="post-permalink u-url u-uid">
+                    <time datetime="{{post.published}}" class="dt-published">
+                        {{ post.published | dayjs }}
+                    </time>
                 </a>
             </section>
 
-            <section class="post-content">
-
+            <section class="post-content e-content">
                 {{post.content.html}}
-                </section>
+            </section>
+
             <section class="post-footer">
                 
                 <details class="post-reply-to">
