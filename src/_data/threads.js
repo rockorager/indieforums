@@ -83,7 +83,7 @@ module.exports = async function () {
             for (const [property, text] of Object.entries(externalLinkPostTypes)) {
                 const externalLink = post[property];
                 if (externalLink) {
-                    thread.context = { externalLink, text};
+                    thread.context = { externalLink, text, microformatClass: `u-${property}` };
                     break;
                 }
             }
